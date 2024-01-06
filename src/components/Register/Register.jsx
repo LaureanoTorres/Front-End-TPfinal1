@@ -1,6 +1,7 @@
 import React, { useState, useTransition } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { URL_API } from '../../../config'
 
 const Register = () => {
     const initialValues = {username: '', password: ''}

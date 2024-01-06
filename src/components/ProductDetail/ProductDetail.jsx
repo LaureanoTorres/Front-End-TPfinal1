@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { URL_API } from '../../../config'
 
 const ProductDetail = () => {
     const {pid} = useParams()
     const [product, setProduct] = useState(null)
     useEffect(() => {
-        fetch('http://localhost:8080/api/products/' + pid, {
+        fetch(URL_API + '/api/products/' + pid, {
             headers: {
                 'Authorization': localStorage.getItem('auth-token-app')
             }
