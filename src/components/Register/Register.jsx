@@ -15,7 +15,7 @@ const Register = () => {
     const handleSubmit = async (e) =>{
         e.preventDefault()
       /*   const response = await axios.post('http://localhost:8080/register', formValues) */
-        const response = await fetch('http://localhost:8080/register', {method: 'POST',
+        const response = await fetch(URL_API + '/register', {method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },

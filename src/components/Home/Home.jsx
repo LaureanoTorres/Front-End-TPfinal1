@@ -6,7 +6,7 @@ const Home = () => {
     const [products, setProducts] = useState([])
     const navigate = useNavigate()
     useEffect(()=>{
-        fetch('http://localhost:8080/api/products', {
+        fetch( URL_API + 'api/products', {
             headers: {
                 'Authorization': localStorage.getItem('auth-token-app')
             }
@@ -26,7 +26,8 @@ const Home = () => {
     <div>
         <h1>Lista de productos</h1>
         {products.length == 0 ? <h2>Cargando...</h2> : products.map(product =>
-            <Product key={product.Id} {...product}/>
+           /*  <Product key={product.Id} {...product}/> */
+            <Product key={product.id} {...product}/>
         )}
     </div>
   )
@@ -34,7 +35,7 @@ const Home = () => {
 
 export default Home
 
-const Product = ({Nombre, Price, Stock, Id}) =>{
+/* const Product = ({Nombre, Price, Stock, Id}) =>{
     return(
         <div>
         <h2>Nombre {Nombre}</h2>
@@ -43,5 +44,17 @@ const Product = ({Nombre, Price, Stock, Id}) =>{
         <br/>
         <Link to={'/detail/' + Id}>Ver Detalle </Link>
     </div>
+    )
+} */
+
+const Product = ({nombre, precio, stock, id}) =>{
+    return (
+        <div >
+            <h2>Nombre {nombre}</h2>
+            <p>Precio {precio}</p>
+            <span>Stock: {stock}</span>
+            <br/>
+            <Link to={'/detail/' + id}>Ver Detalle </Link>
+        </div>
     )
 }
