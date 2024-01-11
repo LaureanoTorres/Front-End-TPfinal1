@@ -7,7 +7,7 @@ const Home = () => {
     const [products, setProducts] = useState([])
     const navigate = useNavigate()
     useEffect(()=>{
-        fetch( URL_API + 'api/products', {
+        fetch( URL_API + '/api/products', {
             headers: {
                 'Authorization': localStorage.getItem('auth-token-app')
             }
